@@ -1,0 +1,79 @@
+<nb-layout>
+  <nb-layout-column>
+      <h4 class="left">BuyBit.io</h4>
+      <h4>Welcome to BuyBit Please Complete your user registration</h4>
+    <div class="row">
+
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <nb-card accent="danger"  [nbSpinner]="loading" nbSpinnerStatus="danger" nbSpinnerSize="xlarge">
+  <nb-card-body>
+  <h5>Please Enter the Otp password you recived in your mobile device  </h5>
+  <form action="" #f="ngForm" (ngSubmit)="onOtp(f)">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group row">
+          <label for="otp" class="col-sm-3 form-control-label">Otp</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control"
+            id=""
+            name= "otp"
+            placeholder=""
+            step="1"
+            pattern="\d*"
+            min="100000"
+            max="999999"
+            pattern="[0-9]+"
+            maxlength="6"
+            ngModel
+                required
+                #otp="ngModel">
+
+
+
+          </div>
+
+        </div>
+        <span class="" [hidden]="otp.valid ">Please Enter digit</span>
+      </div>
+
+
+    </div>
+    <div class="row">
+      <div class="col-md-3 ">
+        <div *ngIf="button">
+          <button class="btn btn-primary">
+
+              <span  (click)="phone()" class="color"><a>{{title}}</a></span>
+           </button>
+      </div>
+              <countdown [config]="{leftTime:20}" (start)="onStart()" (finished)="onFinished()" class="countdown" >
+                  <p></p>
+                </countdown>
+
+
+        <p>{{message}}</p>
+
+      </div>
+      <div class="col-md-3">
+
+      </div>
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-primary"  [disabled]=" !f.valid || f.invalid || !f.dirty">Next</button>
+
+        </div>
+    </div>
+
+
+  </form>
+
+  </nb-card-body>
+</nb-card>
+      </div>
+      <div class="col-md-3"></div>
+
+</div>
+
+
+  </nb-layout-column>
+</nb-layout>

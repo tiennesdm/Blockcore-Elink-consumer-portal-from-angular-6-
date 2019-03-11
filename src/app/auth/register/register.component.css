@@ -1,0 +1,25 @@
+.row{
+  margin: 2%;
+  }
+  h3{
+    text-align: center;
+  }
+  h4{
+    text-align: center;
+  }
+  p{
+    color : red;
+  }
+span{
+  color : red;
+}
+.left{
+  text-align: left;
+}
+.errors{
+  padding-top: 10px;
+  margin-top: 10px;
+  margin: auto;
+  color: red;
+}
+

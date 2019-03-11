@@ -1,0 +1,83 @@
+<div *ngIf="hidden">
+  <div ></div>
+<form  #f="ngForm" (ngSubmit)="onAccountlogin(f)">
+
+      <div class="row">
+          <div class="col-md-12">
+              <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input type="email"
+                  class="form-control"
+                   id="email"
+                    placeholder="Email"
+                    ngModel
+                    name="email"
+                    required
+                    email
+                    #email="ngModel"
+                   >
+
+                </div>
+
+          </div>
+          <span [hidden]="email.valid || email.pristine"
+          class="alert alert-danger">
+       Email  is required
+          </span>
+
+
+        </div>
+        <div class="row">
+          <div class="col-md-8"></div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary"  [disabled]="!f.valid"  >Register/Login</button>
+
+            </div>
+        </div>
+
+  </form>
+</div>
+  <div [hidden]="hidden">
+      <form action="" #f="ngForm" (ngSubmit)="onPassword(f)">
+          <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label for="name" class="">Password</label>
+                    <div class="col-sm-12">
+                      <input type="password" class="form-control" id="name" placeholder=""
+                      name="password"
+                      minlength="8"
+                      ngModel
+                              required
+                              password
+                              #password="ngModel"
+                              maxlength="20">
+                    </div>
+                    <div  *ngIf="password.invalid && (password.dirty || password.touched)"
+                    class="">
+
+                  <p  class="errors"*ngIf="password.errors.required">
+                    Please Fill the password
+                  </p>
+                  <p class="errors" *ngIf="password.errors.minlength">
+                    Please Fill the right password
+                  </p>
+
+                </div>
+                  </div>
+            </div>
+
+
+          </div>
+          <div class="row">
+            <div class="col-md-9"></div>
+              <div class="col-md-3">
+                  <button type="submit" class="btn btn-primary"  [disabled]="!f.valid">Next</button>
+
+              </div>
+          </div>
+
+
+        </form>
+    </div>
+

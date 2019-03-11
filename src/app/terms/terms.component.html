@@ -1,0 +1,74 @@
+<nb-layout>
+  <nb-layout-column>
+      <h4>Welcome to BuyBit Please Complete your user registration</h4>
+    <div class="row">
+
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <nb-card accent="danger"  [nbSpinner]="loading" nbSpinnerStatus="danger" nbSpinnerSize="xlarge">
+  <nb-card-body>
+  <h3>Terms And Conditions</h3>
+  <br>
+  <br>
+  <p>
+      Lorem Ipsum is simply dummy text of the
+       printing and typesetting industry.
+        Lorem Ipsum has been the industry's
+         standard dummy text ever since the 1500s,
+          when an unknown printer took a galley of type
+           and scrambled it to make a type specimen book.
+            It has survived not only five centuries,
+            but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised
+            in the 1960s with the release of Letraset
+            sheets containing Lorem Ipsum passages,
+             and more recently with desktop publishing
+             software like Aldus PageMaker including versions of Lorem Ipsum
+<br>
+<br>
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+  </p>
+  <form action="" #f="ngForm" (ngSubmit)="onTerms(f)">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <nb-checkbox
+                name= "terms"
+                ngModel
+                required
+                terms
+                #terms="ngModel"
+
+
+                >I have read and accept the above terms and Conditions</nb-checkbox>
+                <p [hidden]="terms.valid || terms.pristine"
+                class="label">
+                 Please Select the terms and conditions
+              </p>
+
+              </div>
+        </div>
+
+
+      </div>
+      <div class="row">
+        <div class="col-md-10"></div>
+          <div class="col-md-2">
+              <button type="submit" class="btn btn-primary" (click)='toggleLoadingAnimation()' [disabled]=" !f.valid || f.invalid || !f.dirty" >Submit</button>
+
+          </div>
+      </div>
+
+
+    </form>
+
+  </nb-card-body>
+</nb-card>
+      </div>
+      <div class="col-md-3"></div>
+
+</div>
+
+
+  </nb-layout-column>
+</nb-layout>

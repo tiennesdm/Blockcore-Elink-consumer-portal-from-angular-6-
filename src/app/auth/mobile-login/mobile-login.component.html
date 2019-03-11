@@ -1,0 +1,111 @@
+
+<div *ngIf="hidden">
+<form #f="ngForm" (ngSubmit)="onMobilelogin(f)">
+    <div class="row">
+      <div class="col-md-12">
+          <div class="form-group">
+
+              <label for="exampleInputEmail1">Your Phone Number :</label>
+              <int-phone-prefix ngModel
+              minlength="10"
+              pattern ="([+]?\d{1,2}[.-\s]?)?(\d{3}[.-]?){2}\d{4}"
+              name="mobile"
+              required
+              phone
+              #phone="ngModel"
+
+              defaultCountry= "in"
+
+
+             >
+                </int-phone-prefix>
+            </div>
+      </div>
+
+      <span [hidden]="phone.valid "
+      class="">
+      Please input the phone number
+      </span>
+
+
+    </div>
+    <div class="row">
+      <div class="col-md-8"></div>
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-primary"  [disabled]="!f.valid">Register/Login</button>
+
+        </div>
+    </div>
+
+
+  </form>
+  </div>
+  <div [hidden]="hidden">
+      <h5>Please Enter the Otp password you recived in your mobile device  </h5>
+      <form action="" #f="ngForm" (ngSubmit)="onOtp(f)">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group row">
+              <label for="otp" class="col-sm-3 form-control-label"><b>OTP</b></label>
+              <div class="col-sm-9">
+                <input type="text"class="form-control"
+                required
+                id="Otp"
+                placeholder=""
+                maxlength="6"
+                minlength="6"
+                name="otp"
+                ngModel
+
+                #otp="ngModel"
+            min="100000"
+            max="999999"
+            pattern="[0-9]+"
+
+                >
+
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+<div *ngIf="loop">
+    <span class="btn btn-primary">
+
+        <span  (click)="phoneotp()" class="color"><a>{{title}}</a></span>
+    </span>
+</div>
+
+
+                <countdown [config]="{leftTime:60}"  (start)="onStart()" (finished)="onFinished()" class="countdown" >
+                    <p></p>
+
+                  </countdown>
+
+
+
+          </div>
+          <div class="col-md-7">
+              <div *ngIf="otp.invalid && (otp.dirty || otp.touched)"
+              class="alert alert-danger">
+              Please enter the right otp
+
+          </div>
+              <div class="alert alert-primary" *ngIf="messageprint">{{message}}</div>
+
+          </div>
+
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-primary"  [disabled]=" !f.valid || f.invalid || !f.dirty">Next</button>
+
+            </div>
+        </div>
+
+
+      </form>
+
+  </div>

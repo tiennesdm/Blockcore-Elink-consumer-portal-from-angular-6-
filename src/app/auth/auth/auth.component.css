@@ -1,0 +1,22 @@
+:host nb-tab {
+  padding: 2.25rem;
+}
+.row{
+  margin: 5%;
+  }
+  h3{
+    text-align: center;
+  }
+  h4{
+    text-align: center;
+  }
+  nb-card{
+    margin-top:5%;
+  }
+  nb-tab{
+    background-color: white;
+  }
+  .left{
+    text-align: left;
+  }
+

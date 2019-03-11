@@ -1,0 +1,204 @@
+<nb-layout>
+    <nb-layout-column>
+        <h4 class="left">BuyBit.io</h4>
+        <h4>Welcome to BuyBit Please Complete your user registration</h4>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+              <nb-card accent="danger">
+                <nb-card-body>
+                  <form class="form-horizontal" #f="ngForm" (ngSubmit)="onRegister(f)">
+                    <div class="form-group row">
+                      <label for="email" class="col-sm-3 form-control-label">Email</label>
+                      <div class="col-sm-9">
+                        <input type="email" class="form-control"
+                         id="email"
+                         placeholder=""
+                         ngModel
+                         name="email"
+                         required
+                         email
+                         #email="ngModel">
+                      </div>
+                      <div  *ngIf="email.invalid && (email.dirty || email.touched)"
+                      class="">
+
+                    <b  class="errors"*ngIf="email.errors.required">
+                      Please Fill the email
+                    </b>
+                  </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="phone" class="col-sm-3 form-control-label">Mobile Phone</label>
+                        <div class="col-sm-9">
+                            <int-phone-prefix ngModel
+                            minlength="10"
+                            pattern ="([+]?\d{1,2}[.-\s]?)?(\d{3}[.-]?){2}\d{4}"
+                            name="mobile"
+                            required
+                            phone
+                            #phone="ngModel"
+
+                            defaultCountry= "in"
+
+
+                           >
+                        </int-phone-prefix>
+
+                        </div>
+                        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+                      class="">
+                      <b class="errors">Phone Number  is required.</b>
+                  </div>
+                      </div>
+                    <div class="form-group row">
+                      <label for="password" class="col-sm-3 form-control-label">Password</label>
+                      <div class="col-sm-9">
+                        <input type="password" class="form-control"
+                        id="password"
+                        placeholder=""
+                        minlength="8"
+                        maxlength="20"
+                        name="password"
+                        ngModel
+                        required
+                        password
+                        #password="ngModel">
+                      </div>
+                      <div  *ngIf="password.invalid && (password.dirty || password.touched)"
+                      class="">
+
+                    <b  class="errors"*ngIf="password.errors.required">
+                      Please Fill the password
+                    </b>
+                    <b class="errors" *ngIf="password.errors.minlength">
+                         Password must be at least 8 characters long.
+                    </b>
+
+                  </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="repeat" class="col-sm-3 form-control-label">Repeat Password</label>
+                      <div class="col-sm-9">
+                        <input type="password" class="form-control" id="repeat" placeholder=""
+                        name="repeat"
+                        minlength="8"
+                        maxlength="20"
+                        ngModel
+                        required
+                        repeat
+                        #repeat="ngModel">
+
+                      </div>
+                      <span>
+                          <div  *ngIf="repeat.invalid && (repeat.dirty || repeat.touched)"
+                          class="">
+
+                        <b  class="errors" *ngIf="repeat.errors.required">
+                          Please Fill the repeat password
+                        </b>
+                        <b class="errors" *ngIf="repeat.errors.minlength">
+                            Repeat Password must be at least 8 characters long.
+                        </b>
+
+                      </div>
+                        <b class="errors" *ngIf="f.value.password !== f.value.repeat">{{message}}</b>
+
+                      </span>
+                    </div>
+                    <div class="form-group row">
+                      <label for="name" class="col-sm-3 form-control-label">Name</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control"
+                        id="name"
+                        minlength="4"
+                        maxlength="20"
+                        placeholder=""
+                        name="firstname"
+                        required
+                        firstname
+                        ngModel
+                        #firstname="ngModel"
+                        >
+
+                      </div>
+                      <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)"
+                      class="">
+
+                    <b class="errors" *ngIf="firstname.errors.required">
+                      Name is required.
+                    </b>
+                    <b class="errors" *ngIf="surname.errors.minlength">
+                      Name must be at least 4 characters long.
+                    </b>
+
+                  </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="surname" class="col-sm-3 form-control-label">Surname</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control"
+                        required
+                        minlength="4"
+                        maxlength="20"
+                        id="surname"
+                        placeholder=""
+                        name="surname"
+
+                        ngModel
+                        #surname="ngModel"
+                        surname
+                        >
+
+                      </div>
+                      <div></div>
+                      <div  *ngIf="surname.invalid && (surname.dirty || surname.touched)"
+                      class="">
+
+                    <b class="errors" *ngIf="surname.errors.required">
+                      Surname is required.
+                    </b>
+                    <b class="errors" *ngIf="surname.errors.minlength">
+                      Surname must be at least 4 characters long.
+                    </b>
+
+                  </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="surname" class="col-sm-3 form-control-label">Country of Residence India</label>
+                      <div class="col-sm-9">
+
+      <select id="inputState" class="form-control" required
+      name="country"
+                        required
+                        ngModel
+                        #country="ngModel"
+                        country
+      >
+        <option value="spain">Spain</option>
+        <option value="europe"> Europe</option>
+        <option value="others">Others</option>
+      </select>
+
+                      </div>
+                      <span [hidden]="country.valid || country.pristine"
+                      class="">
+                  Choose Your country
+                      </span>
+                    </div>
+                    <div class="form-group row">
+                      <div class="offset-sm-3 col-sm-9">
+                        <button type="submit" class="btn btn-warning" [disabled]="!f.valid"  >Next</button>
+                      </div>
+                    </div>
+                  </form>
+                </nb-card-body>
+              </nb-card>
+            </div>
+          </div>
+
+
+    </nb-layout-column>
+  </nb-layout>
+
+
